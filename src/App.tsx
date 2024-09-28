@@ -7,6 +7,7 @@ import Nopage from "./pages/Nopage";
 import Layout from "./hoc/Maxwidth";
 import "./App.css";
 import Info from "./pages/Info";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   const [userLocation, setUserLocation] = useState<{
@@ -50,7 +51,10 @@ function App() {
                   />
                 }
               />
-              <Route path="/info/:district/:lot/:lon" element={<Nopage />} />
+              <Route
+                path="/info/:district/:lat/:lon"
+                element={<DetailsPage />}
+              />
               <Route path="*" element={<Nopage />} />
             </Routes>
           </Layout>

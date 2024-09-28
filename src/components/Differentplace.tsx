@@ -32,7 +32,7 @@ const Differentplace = () => {
 
   useEffect(() => {
     const tempArray: nepalDistrict[] = [];
-    while (tempArray.length < 4) {
+    while (tempArray.length < 6) {
       const item =
         nepalDistrictsCoordinates[
           Math.floor(Math.random() * nepalDistrictsCoordinates.length)
@@ -68,40 +68,39 @@ const Differentplace = () => {
   }, [RamDistrict]);
 
   return (
-    <div className={`${weatherDataArray.length > 0 ? "block" : "hidden"}`}>
-      <p className="font-medium text-[24px]">
-        Weather From Different Locations:{" "}
-      </p>
+    <div
+      className={`${
+        weatherDataArray.length > 0 ? "block" : "hidden"
+      } flex flex-col gap-0  items- w-full`}
+    >
+      <div className="flex justify-between">
+        <span className="font-medium text-[20px] inline">
+          Nepal Weather Conditions{" "}
+        </span>
+        <button className="w-fit bg-[#32b5c6] border-none text-white rounded-md py-2 px-4">
+          see more
+        </button>
+      </div>
       {weatherDataArray.length > 0 && (
-        <div className="w-full grid grid-cols-4 gap-10">
+        <div className="w-full flex gap-2 flex-wrap justify-center items-center max-h-[20rem] overflow-y-scroll py-4 overflow-x-hidden px-10  mt-2 bg-[#91c9d0]">
           {weatherDataArray.map((district, index) => (
             <div
               key={index}
-              className="max-w-sm  w-[20rem] mx-auto bg-white shadow-lg rounded-lg mt-2 p-6"
+              className="max-w-sm cursor-pointer w-full mx-auto bg-white border-2 rounded-lg mt-2 p-2 px-4 flex flex-col w"
             >
-              <h2 className="text-2xl font-bold">
-                {district.district}, {district.sys.country}
-              </h2>
-              <img
-                src={`http://openweathermap.org/img/wn/${district.weather[0].icon}@2x.png`}
-                alt={district.weather[0].description}
-                className="w-24 h-24 mx-auto my-4"
-              />
-              <p className="text-lg">
-                Temperature:{" "}
-                <span className="font-semibold">
-                  {district.main.temp.toFixed(1)}°C
-                </span>
-              </p>
-              <p className="text-lg inline">
-                Feels Like:{" "}
-                <span className="font-semibold">
-                  {district.main.feels_like.toFixed(1)}°C
-                </span>
-              </p>
-              <p className="float-right font-bold underline cursor-pointer text-[#32b5c6]">
-                see more
-              </p>
+              <div className="flex  justify-between items-center">
+                <h2 className="text-lg font-bold">{district.district}</h2>
+                <img
+                  src={`http://openweathermap.org/img/wn/${district.weather[0].icon}@2x.png`}
+                  alt={district.weather[0].description}
+                  className="w-12 h-12 mx-auto my-4"
+                />
+                <p className="text-lg">
+                  <span className="font-semibold">
+                    {district.main.temp.toFixed(1)}°C
+                  </span>
+                </p>
+              </div>
             </div>
           ))}
         </div>

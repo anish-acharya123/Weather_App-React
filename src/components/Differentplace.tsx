@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import options from "../constant/Districts";
-import { FetchByDistrict } from "../services/FetchByDistrict";
+import { useEffect, useState } from "react";
+import { options, nepalDistrictsCoordinates } from "../constant/Districts";
+import { FetchData } from "../services/FetchTemp";
 
 interface WeatherData {
   coord: { lon: number; lat: number };
@@ -17,69 +17,93 @@ interface WeatherData {
   clouds: { all: number };
   sys: { country: string; sunrise: number; sunset: number };
   name: string;
+  district: string;
+}
+
+interface nepalDistrict {
+  name: string;
+  lat: number;
+  lon: number;
 }
 
 const Differentplace = () => {
-  const [data, setData] = useState<WeatherData | null>(null);
-  const [RamDistrict, setRamDistrict] = useState<string[]>([]);
+  const [weatherDataArray, setWeatherDataArray] = useState<WeatherData[]>([]);
+  const [RamDistrict, setRamDistrict] = useState<nepalDistrict[]>([]);
 
   useEffect(() => {
-    const tempArray: string[] = [];
-    while (tempArray.length < 5) {
-      const item = options[Math.floor(Math.random() * options.length)]; 
+    const tempArray: nepalDistrict[] = [];
+    while (tempArray.length < 4) {
+      const item =
+        nepalDistrictsCoordinates[Math.floor(Math.random() * options.length)];
       if (!tempArray.includes(item)) {
         tempArray.push(item);
       }
     }
     setRamDistrict(tempArray);
   }, []);
-  console.log(RamDistrict);
+
   useEffect(() => {
-    try {
-      (async () => {
-        const res = await FetchByDistrict();
-        setData(res);
-      })();
-    } catch (error) {
-      console.log("Error fetching district data", error);
+    const fetchWeatherData = async () => {
+      try {
+        const fetchedData = await Promise.all(
+          RamDistrict.map(async (district) => {
+            const weatherData = await FetchData(district.lat, district.lon);
+            return {
+              ...weatherData,
+              district: district.name,
+            };
+          })
+        );
+        setWeatherDataArray(fetchedData);
+      } catch (error) {
+        console.log("Error fetching district data", error);
+      }
+    };
+
+    if (RamDistrict.length > 0) {
+      fetchWeatherData();
     }
-  }, []);
+  }, [RamDistrict]);
 
-  const temp = data?.main?.temp ?? 0;
-  const feelsLike = data?.main?.feels_like ?? 0;
-  const country = data?.sys?.country ?? "";
-  const name = data?.name ?? "";
-  const weatherIcon = data?.weather?.[0]?.icon
-    ? `http://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`
-    : "";
-
-  console.log(data);
   return (
-    <div>
+    <div className={`${weatherDataArray.length > 0 ? "block" : "hidden"}`}>
       <p className="font-medium text-[24px]">
-        Weather From Different Location:{" "}
+        Weather From Different Locations:{" "}
       </p>
-      <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg mt-2 p-6">
-        <h2 className="text-2xl font-bold">
-          {name}, {country}
-        </h2>
-        <img
-          src={weatherIcon}
-          alt={data?.weather[0].description}
-          className="w-24 h-24 mx-auto my-4"
-        />
-        <p className="text-lg">
-          Temperature:{" "}
-          <span className="font-semibold">{temp.toFixed(1)}°C</span>
-        </p>
-        <p className="text-lg inline">
-          Feels Like:{" "}
-          <span className="font-semibold">{feelsLike.toFixed(1)}°C</span>
-        </p>
-        <p className="float-right font-medium underline cursor-pointer">
-          see more{""}
-        </p>
-      </div>
+      {weatherDataArray.length > 0 && (
+        <div className="w-full grid grid-cols-4 gap-10">
+          {weatherDataArray.map((district, index) => (
+            <div
+              key={index}
+              className="max-w-sm  w-[20rem] mx-auto bg-white shadow-lg rounded-lg mt-2 p-6"
+            >
+              <h2 className="text-2xl font-bold">
+                {district.district}, {district.sys.country}
+              </h2>
+              <img
+                src={`http://openweathermap.org/img/wn/${district.weather[0].icon}@2x.png`}
+                alt={district.weather[0].description}
+                className="w-24 h-24 mx-auto my-4"
+              />
+              <p className="text-lg">
+                Temperature:{" "}
+                <span className="font-semibold">
+                  {district.main.temp.toFixed(1)}°C
+                </span>
+              </p>
+              <p className="text-lg inline">
+                Feels Like:{" "}
+                <span className="font-semibold">
+                  {district.main.feels_like.toFixed(1)}°C
+                </span>
+              </p>
+              <p className="float-right font-medium underline cursor-pointer">
+                see more
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

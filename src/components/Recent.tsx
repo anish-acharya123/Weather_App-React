@@ -1,4 +1,4 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import { DataContext } from "../context/Dataprovider";
 
 const Recent = () => {
@@ -12,10 +12,10 @@ const Recent = () => {
     : "";
 
   return (
-    <div>
+    <div className="">
       <p className="font-medium text-[24px]">Weather From Recent Location: </p>
       {data && (
-        <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg mt-2 p-6">
+        <div className="max-w-sm  bg-white shadow-lg rounded-lg mt-2 p-6">
           <h2 className="text-2xl font-bold">
             {name}, {country}
           </h2>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Geolocation from "../services/Geolocation";
-import options from "../constant/Districts";
+import { options } from "../constant/Districts";
 import { Icon } from "@iconify/react";
 import Recent from "../components/Recent";
 import Differentplace from "../components/Differentplace";
@@ -139,7 +139,7 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-8 w-full">
         <Recent />
         <Differentplace />
       </div>

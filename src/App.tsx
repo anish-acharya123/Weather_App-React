@@ -27,7 +27,7 @@ function App() {
     fetchLocation();
   }, []);
 
-  console.log(userLocation, "anish");
+  // console.log(userLocation, "anish");
   if (userLocation) {
     localStorage.setItem("userlocation", JSON.stringify(userLocation));
   }

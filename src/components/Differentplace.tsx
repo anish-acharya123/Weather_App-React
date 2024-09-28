@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { options, nepalDistrictsCoordinates } from "../constant/Districts";
+import nepalDistrictsCoordinates from "../constant/Districts";
 import { FetchData } from "../services/FetchTemp";
 
 interface WeatherData {
@@ -34,7 +34,9 @@ const Differentplace = () => {
     const tempArray: nepalDistrict[] = [];
     while (tempArray.length < 4) {
       const item =
-        nepalDistrictsCoordinates[Math.floor(Math.random() * options.length)];
+        nepalDistrictsCoordinates[
+          Math.floor(Math.random() * nepalDistrictsCoordinates.length)
+        ];
       if (!tempArray.includes(item)) {
         tempArray.push(item);
       }
@@ -97,7 +99,7 @@ const Differentplace = () => {
                   {district.main.feels_like.toFixed(1)}°C
                 </span>
               </p>
-              <p className="float-right font-medium underline cursor-pointer">
+              <p className="float-right font-bold underline cursor-pointer text-[#32b5c6]">
                 see more
               </p>
             </div>

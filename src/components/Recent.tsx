@@ -32,7 +32,7 @@ const Recent = () => {
             Feels Like:{" "}
             <span className="font-semibold">{feelsLike.toFixed(1)}°C</span>
           </p>
-          <p className="float-right font-medium underline cursor-pointer">
+          <p className="float-right font-bold underline cursor-pointer text-[#32b5c6]">
             see more{""}
           </p>
         </div>

@@ -50,6 +50,7 @@ function App() {
                   />
                 }
               />
+              <Route path="/info/:district/:lot/:lon" element={<Nopage />} />
               <Route path="*" element={<Nopage />} />
             </Routes>
           </Layout>

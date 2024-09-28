@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Geolocation from "./services/Geolocation";
 import { Dataprovider } from "./context/Dataprovider";
 import Home from "./pages/Home";

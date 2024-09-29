@@ -13,7 +13,7 @@ const SearchBox = () => {
   let list: string[] = [];
 
   nepalDistrictsCoordinates.map((item) => list.push(item.name));
-  console.log(list);
+  // console.log(list);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

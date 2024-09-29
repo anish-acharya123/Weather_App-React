@@ -30,7 +30,7 @@ const Recent = () => {
         <img
           src={weatherIcon}
           alt={data.weather[0]?.description || "Weather icon"}
-          className="w-24 h-24 mx-auto my-4"
+          className="w-24 h-24 mx-auto my-4 drop-shadow-md"
         />
         <p className="text-lg">
           Temperature:{" "}

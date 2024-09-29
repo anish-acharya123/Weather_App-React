@@ -93,7 +93,7 @@ const Differentplace = () => {
                 <img
                   src={`http://openweathermap.org/img/wn/${district.weather[0].icon}@2x.png`}
                   alt={district.weather[0].description}
-                  className="w-12 h-12 mx-auto my-4"
+                  className="w-12 h-12 mx-auto my-4 drop-shadow-2xl"
                 />
                 <p className="text-lg">
                   <span className="font-semibold">

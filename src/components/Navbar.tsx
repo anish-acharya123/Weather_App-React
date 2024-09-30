@@ -1,5 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import SearchBox from "./SearchBox";
 
 const Navbar = () => {
   return (
@@ -16,15 +17,15 @@ const Navbar = () => {
           </figure>
 
           <ul className="sm:flex hidden gap-6 font-medium items-center text-[20px] ">
+            <li className="cursor-pointer">
+              {/* <input type="text" /> */}
+              <SearchBox />
+            </li>
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
               <NavLink to="/info">Info</NavLink>
-            </li>
-            <li className="cursor-pointer">
-              {/* <input type="text" /> */}
-              <Icon icon="iconamoon:search-bold" className="text-[26px]" />
             </li>
           </ul>
           <div className="sm:hidden">

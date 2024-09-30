@@ -4,7 +4,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  min-height: 100%;
+}
 
 body {
-  background-color: #d6f7f8;
+  background: linear-gradient(#385372, #9499d7);
+  background-repeat: no-repeat;
+  background-size: contain;
 }

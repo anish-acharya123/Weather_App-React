@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Geolocation from "../services/Geolocation";
 import { Icon } from "@iconify/react";
 import Recent from "../components/Recent";
-import Differentplace from "../components/Differentplace";
 import SearchBox from "../components/SearchBox";
+import Recent1 from "../components/Recent1";
 
 interface geolocation {
   latitude?: number;
@@ -49,9 +49,9 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
   };
 
   return (
-    <div className=" min-h-screen flex justify-center flex-col items-start px-6 w-full gap-4 pt-28 pb-10 ">
+    <div className="pt-32 min-h-screen flex justify-center flex-col items-start px-6 w-full gap-4 pb-10 ">
       <div
-        className=" flex  justify-center items-center w-full  bg-fixed py-20"
+        className=" flex  justify-center items-center w-full  bg-fixed py-10"
         style={bgImage}
       >
         <div className="flex flex-col gap-4  ">
@@ -61,7 +61,7 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
           <SearchBox />
           <button
             onClick={handleAllowclick}
-            className="py-2 px-4  flex justify-center items-center gap-4 bg-[#32b5c6] text-white border-2 border-[#32b5c6] rounded-md"
+            className="py-2 px-4  flex justify-center items-center gap-4 bg-[#385372] text-white border-2 border-[#385372] rounded-md"
           >
             <Icon
               icon="carbon:location-filled"
@@ -73,9 +73,10 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
         </div>
       </div>
 
-      <div className="flex flex-row gap-8 w-full mt-6">
-        <Recent />
-        <Differentplace />
+      <div className="flex flex-row gap-8 w-full mt-2">
+        {/* <Recent /> */}
+        <Recent1 />
+        {/* <Differentplace /> */}
       </div>
     </div>
   );

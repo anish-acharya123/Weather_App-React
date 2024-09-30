@@ -1,11 +1,13 @@
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import SearchBox from "./SearchBox";
 
 const Navbar = () => {
+  const location = useLocation();
+  // console.log(location);
   return (
     <>
-      <nav className=" z-50 px-6  py-6  border-b-2 border-gray-400 fixed w-full max-w-[1440px] top-0 text-black bg-[#d6f7f8]">
+      <nav className=" z-50 px-6  py-6  border-b-2 border-gray-400 fixed w-full max-w-[1440px] top-0 text-white">
         <div className="flex justify-between">
           <figure>
             {/* <img src="" alt="" /> */}
@@ -17,10 +19,11 @@ const Navbar = () => {
           </figure>
 
           <ul className="sm:flex hidden gap-6 font-medium items-center text-[20px] ">
-            <li className="cursor-pointer">
-              {/* <input type="text" /> */}
-              <SearchBox />
-            </li>
+            {location.pathname !== "/info" && (
+              <li className="cursor-pointer">
+                <SearchBox />
+              </li>
+            )}
             <li>
               <NavLink to="/">Home</NavLink>
             </li>

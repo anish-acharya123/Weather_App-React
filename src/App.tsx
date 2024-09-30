@@ -16,7 +16,7 @@ function App() {
   } | null>(null);
 
   useEffect(() => {
-    const fetchLocation = async () => {
+    const fetchCurrentWeatherData = async () => {
       try {
         const location = await Geolocation();
         setUserLocation(location);
@@ -25,7 +25,7 @@ function App() {
       }
     };
 
-    fetchLocation();
+    fetchCurrentWeatherData();
   }, []);
 
   if (userLocation) {

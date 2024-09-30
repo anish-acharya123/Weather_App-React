@@ -11,7 +11,7 @@ const Geolocation = async (): Promise<{
       name: "geolocation",
     });
 
-    console.log(permissionStatus);
+    // console.log(permissionStatus);
     if (permissionStatus.state === "denied") {
       alert(
         "You have previously denied location access. Please enable it in your browser settings."

@@ -22,7 +22,7 @@ const Recent = () => {
 
   return (
     <div className="">
-      <p className="font-medium text-[20px]">Weather From Recent Location: </p>
+      <p className="font-medium text-[20px] text-white">Weather From Recent Location: </p>
       <div className="max-w-sm w-[30rem] bg-white shadow-lg rounded-lg mt-2 p-6">
         <h2 className="text-2xl font-bold">
           {name}, {country}

@@ -66,7 +66,7 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="flex justify-center items-center gap-2 relative ">
+    <div className="flex justify-center items-center gap-2 relative text-black">
       <input
         autoComplete="off"
         type="search"
@@ -82,10 +82,10 @@ const SearchBox = () => {
       />
       <button
         onClick={handleSearchbtn}
-        className="bg-[#32b5c6] font-medium py-2 px-4 text-white rounded-2xl cursor-pointer"
+        className="bg-[#385372] border-2 font-medium py-2 px-4 text-white rounded-2xl cursor-pointer"
       >
-        {/* <Icon icon="iconamoon:search-bold" className="text-[26px]  " /> */}
-        <span>Search</span>
+        <Icon icon="iconamoon:search-bold" className="text-[26px]  " />
+        {/* <span>Search</span> */}
       </button>
       {filteredOptions.length > 0 && (
         <ul

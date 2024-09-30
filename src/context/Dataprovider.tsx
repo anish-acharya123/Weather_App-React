@@ -1,5 +1,4 @@
 import React, { createContext, ReactNode, useEffect, useState } from "react";
-import { FetchData } from "../services/FetchTemp";
 import { FetchByMeteo } from "../services/Apimeteo";
 import FetchLocation from "../services/FetchLocation";
 

@@ -76,7 +76,7 @@ const SearchBox = () => {
         value={searchTerm || ""}
         ref={inputRef}
         placeholder="Enter your district / Allow location permission"
-        className="py-2  px-4 cursor-pointer border-none outline-none text-[18px] rounded-lg w-full"
+        className="py-2    px-4 cursor-pointer border-none outline-none text-[18px] rounded-lg w-full"
         onChange={handleInputChange}
         onClick={handleInputClick}
       />

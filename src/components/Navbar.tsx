@@ -7,7 +7,7 @@ const Navbar = () => {
   // console.log(location);
   return (
     <>
-      <nav className=" z-50 px-6  py-6  border-b-2 border-gray-400 fixed w-full max-w-[1440px] top-0 text-white">
+      <nav className=" backdrop-filter backdrop-blur-md z-50 px-6  py-6  border-b-2 border-gray-400 fixed w-full max-w-[1440px] top-0 text-white">
         <div className="flex justify-between">
           <figure>
             {/* <img src="" alt="" /> */}

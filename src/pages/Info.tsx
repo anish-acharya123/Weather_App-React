@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import Geolocation from "../services/Geolocation";
 import { Icon } from "@iconify/react";
-import Recent from "../components/Recent";
 import SearchBox from "../components/SearchBox";
-import Recent1 from "../components/Recent1";
+import Recent from "../components/Recent";
 
 interface geolocation {
   latitude?: number;
@@ -51,11 +50,11 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
   return (
     <div className="pt-32 min-h-screen flex justify-center flex-col items-start px-6 w-full gap-4 pb-10 ">
       <div
-        className=" flex  justify-center items-center w-full  bg-fixed py-10"
+        className=" flex  justify-center items-center w-full  bg-fixed py-10 px-6"
         style={bgImage}
       >
         <div className="flex flex-col gap-4  ">
-          <label htmlFor="search" className="text-[32px] font-bold text-white ">
+          <label htmlFor="search" className="md:text-3xl text-2xl font-bold text-white ">
             Enter Your Location Here:{" "}
           </label>
           <SearchBox />
@@ -75,7 +74,7 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
 
       <div className="flex flex-row gap-8 w-full mt-2">
         {/* <Recent /> */}
-        <Recent1 />
+        <Recent />
         {/* <Differentplace /> */}
       </div>
     </div>

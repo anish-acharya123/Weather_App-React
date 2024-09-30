@@ -11,23 +11,6 @@ interface DataProviderProps {
   longitude?: number;
 }
 
-interface WeatherData {
-  coord: { lon: number; lat: number };
-  weather: { id: number; main: string; description: string; icon: string }[];
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-  wind: { speed: number; deg: number; gust: number };
-  clouds: { all: number };
-  sys: { country: string; sunrise: number; sunset: number };
-  name: string;
-}
-
 interface Location {
   latitude: number;
   longitude: number;
@@ -43,6 +26,47 @@ interface userAddress {
   city_district: string;
   municipality: string;
   county: string;
+}
+
+interface WeatherData {
+  latitude: number;
+  longitude: number;
+  generationtime_ms: number;
+  utc_offset_seconds: number;
+  timezone: string;
+  timezone_abbreviation: string;
+  elevation: number;
+  current_weather_units: {
+    time: string;
+    interval: string;
+    temperature: string;
+    windspeed: string;
+    winddirection: string;
+    is_day: string;
+    weathercode: string;
+  };
+  current_weather: {
+    time: string;
+    interval: number;
+    temperature: number;
+    windspeed: number;
+    winddirection: number;
+    is_day: number;
+    weathercode: number;
+  };
+  hourly_units: {
+    time: string;
+    temperature_2m: string;
+    precipitation: string;
+    rain: string;
+    weather_code: string;
+    wind_speed_10m: string;
+    wind_direction_10m: string;
+  };
+  hourly: {
+    time: string[];
+    temperature_2m: number[];
+  };
 }
 
 const Dataprovider: React.FC<DataProviderProps> = ({

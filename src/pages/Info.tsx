@@ -79,7 +79,7 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
 
       <div
         className={` ${
-          data ? "block" : "hidden"
+          data && data ? "block" : "hidden"
         } flex flex-row gap-8 w-full mt-2`}
       >
         <Recent />

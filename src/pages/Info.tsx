@@ -30,7 +30,7 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
         userlocation?.latitude !== undefined &&
         userlocation?.longitude !== undefined
       ) {
-        setMsg("Your Location is Uptodate.");
+        setMsg("Your location is already saved from a previous session.");
         setTimeout(() => {
           setMsg("");
         }, 5000);

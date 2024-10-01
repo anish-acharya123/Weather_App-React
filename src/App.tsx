@@ -5,9 +5,9 @@ import { Dataprovider } from "./context/Dataprovider";
 import Home from "./pages/Home";
 import Nopage from "./pages/Nopage";
 import Layout from "./hoc/Maxwidth";
-import "./App.css";
 import Info from "./pages/Info";
 import DetailsPage from "./pages/DetailsPage";
+import "./App.css";
 
 function App() {
   const [userLocation, setUserLocation] = useState<{
@@ -26,9 +26,6 @@ function App() {
     };
 
     fetchCurrentWeatherData();
-    () => {
-      setUserLocation(null);
-    };
   }, []);
 
   if (userLocation) {

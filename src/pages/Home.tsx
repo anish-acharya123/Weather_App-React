@@ -9,7 +9,6 @@ import cover2 from "../assets/cover2.png";
 const Home: React.FC = () => {
   const { userAddress } = useContext(DataContext);
   const navigate = useNavigate();
-  console.log(userAddress);
 
   return (
     <div className="min-h-screen px-6 md:flex-row flex-col-reverse text-white   w-full flex justify-center items-center">
@@ -19,7 +18,7 @@ const Home: React.FC = () => {
             {/* Your current Location{" "} */}
             Discover what's new in{" "}
             <span className="text-white underline underline-offset-2">
-              {userAddress?.city || "Your Location"}! <br />
+              {(userAddress && userAddress?.city) || "Your Location"}! <br />
             </span>
             Check the latest weather updates, events, and more.
           </div>

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DataContext } from "../context/Dataprovider";
 import Geolocation from "../services/Geolocation";
 import { Icon } from "@iconify/react";
 import SearchBox from "../components/SearchBox";
@@ -21,6 +22,7 @@ interface Props {
 
 const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
   const [msg, setMsg] = useState<string | null>(null);
+  const { data } = useContext(DataContext);
 
   const handleAllowclick = async () => {
     try {
@@ -54,7 +56,10 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
         style={bgImage}
       >
         <div className="flex flex-col gap-4  ">
-          <label htmlFor="search" className="md:text-3xl text-2xl font-bold text-white ">
+          <label
+            htmlFor="search"
+            className="md:text-3xl text-2xl font-bold text-white "
+          >
             Enter Your Location Here:{" "}
           </label>
           <SearchBox />
@@ -72,10 +77,12 @@ const Info: React.FC<Props> = ({ setUserLocation, userlocation }) => {
         </div>
       </div>
 
-      <div className="flex flex-row gap-8 w-full mt-2">
-        {/* <Recent /> */}
+      <div
+        className={` ${
+          data ? "block" : "hidden"
+        } flex flex-row gap-8 w-full mt-2`}
+      >
         <Recent />
-        {/* <Differentplace /> */}
       </div>
     </div>
   );

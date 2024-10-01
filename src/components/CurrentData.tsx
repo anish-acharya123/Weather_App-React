@@ -1,31 +1,30 @@
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import { DataContext } from "../context/Dataprovider";
+import getWeatherIcon from "../services/GetIcons";
 import { Icon } from "@iconify/react";
 
-const CurrentData = () => {
+interface props {
+  searchData: object | undefined;
+  current_data: object | undefined;
+}
+const CurrentData: React.FC<props> = ({ searchData, current_data }) => {
+  const { district } = useParams();
   const { data, userAddress } = useContext(DataContext);
-  const current_weather = data?.current_weather;
-  const daily = data?.daily;
-  const city = userAddress?.city;
 
-  const getWeatherIcon = (weatherCode: number) => {
-    switch (weatherCode) {
-      case 0:
-        return "line-md:sunny-loop";
-      case 1:
-      case 2:
-      case 3:
-        return "fluent-mdl2:cloudy";
-      case 61:
-      case 63:
-      case 65:
-        return "raphael:rain";
-      case 95:
-        return "material-symbols:thunderstorm";
-      default:
-        return "line-md:sunny-loop";
-    }
-  };
+  let daily;
+  let city;
+  let current_weather;
+  if (searchData === undefined) {
+    current_weather = data?.current_weather;
+    daily = data?.daily;
+    city = userAddress?.city;
+  } else {
+    daily = searchData;
+    city = district;
+    current_weather = current_data;
+  }
+
   return (
     <div className="bg-[#385372] h-full p-4 text-white  w-fit flex-1 flex justify-center flex-col gap-4">
       <h2 className="text-2xl">
@@ -116,10 +115,7 @@ const CurrentData = () => {
             icon="carbon:sunset"
             className="text-orange-500 text-[40px] inline"
           />
-          <span className="text-gray-300 font-medium text-2xl">
-            {" "}
-            Sun rise:{" "}
-          </span>{" "}
+          <span className="text-gray-300 font-medium text-2xl"> Sun set: </span>{" "}
           <br />
           <span className="text-2xl">{daily?.sunset[0].split("T")[1]} PM</span>
         </p>

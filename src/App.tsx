@@ -23,6 +23,9 @@ function App() {
       } catch (error) {
         console.error("Error fetching location:", error);
       }
+      () => {
+        setUserLocation(null);
+      };
     };
 
     fetchCurrentWeatherData();

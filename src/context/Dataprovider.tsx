@@ -74,7 +74,7 @@ const Dataprovider: React.FC<DataProviderProps> = ({
   longitude,
 }) => {
   const [data, setData] = useState<WeatherData | null>(null);
-  const [userAddress, setUserAddress] = useState<userAddress | undefined>();
+  const [userAddress, setUserAddress] = useState<userAddress | null>(null);
 
   const userLocation: string | null = localStorage.getItem("userlocation");
 

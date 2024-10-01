@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import nepalDistrictsCoordinates from "../constant/Districts";
-import { FetchData } from "../services/FetchTemp";
+import { FetchByMeteo } from "../services/Apimeteo";
+
 
 interface WeatherData {
   coord: { lon: number; lat: number };
@@ -49,7 +50,7 @@ const Differentplace = () => {
       try {
         const fetchedData = await Promise.all(
           RamDistrict.map(async (district) => {
-            const weatherData = await FetchData(district.lat, district.lon);
+            const weatherData = await FetchByMeteo(district.lat, district.lon);
             return {
               ...weatherData,
               district: district.name,

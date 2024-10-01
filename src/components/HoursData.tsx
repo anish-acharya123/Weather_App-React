@@ -17,7 +17,7 @@ const HoursData = () => {
 
   const hourly = data?.hourly;
 
-//   console.log(hourly);
+  console.log(hourly);
   return (
     <div>
       {/* <div>aish</div> */}

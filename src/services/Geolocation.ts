@@ -7,15 +7,17 @@ const Geolocation = async (): Promise<{
       throw new Error("Geolocation is not supported by this browser.");
     }
 
-    const permissionStatus = await navigator.permissions.query({
-      name: "geolocation",
-    });
+    if (navigator.permissions) {
+      const permissionStatus = await navigator.permissions.query({
+        name: "geolocation",
+      });
 
-    // console.log(permissionStatus);
-    if (permissionStatus.state === "denied") {
-      alert(
-        "You have previously denied location access. Please enable it in your browser settings."
-      );
+      if (permissionStatus.state === "denied") {
+        alert(
+          "You have previously denied location access. Please enable it in your browser settings."
+        );
+        throw new Error("Permission denied for Geolocation.");
+      }
     }
 
     return new Promise((resolve, reject) => {
@@ -27,18 +29,21 @@ const Geolocation = async (): Promise<{
         (error) => {
           switch (error.code) {
             case error.PERMISSION_DENIED:
-              console.error("User denied the request for Geolocation.");
+              alert(
+                "Location access denied. Please enable it in your settings."
+              );
               reject(new Error("Permission denied"));
               break;
             case error.POSITION_UNAVAILABLE:
-              console.error("Location information is unavailable.");
+              alert("Location information is unavailable.");
               reject(new Error("Position unavailable"));
               break;
             case error.TIMEOUT:
-              console.error("The request to get user location timed out.");
+              alert("The request to get user location timed out.");
               reject(new Error("Timeout"));
               break;
             default:
+              alert("An unknown error occurred.");
               reject(new Error("An unknown error occurred."));
               break;
           }

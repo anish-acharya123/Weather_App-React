@@ -10,11 +10,9 @@ A weather application that shows the current weather conditions for various loca
 
 ## Screenshots
 
-*Homepage
-![Homepage](![alt text](image.png))
+![Homepage]![alt text](image.png)
 
-*Searchpage
-![Search-Feature](![alt text](image-1.png))
+![Search-Feature]![alt text](image-1.png)
 
 
 ## Table of Content

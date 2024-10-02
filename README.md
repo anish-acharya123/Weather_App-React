@@ -8,6 +8,15 @@ A weather application that shows the current weather conditions for various loca
 - Shows Temperature, Rain percentage, and weather descriptions.
 - User-friendly interface with real-time weather updates.
 
+## Screenshots
+
+*Homepage
+![Homepage](![alt text](image.png))
+
+*Searchpage
+![Search-Feature](![alt text](image-1.png))
+
+
 ## Table of Content
  - [Installation](#installation)
  - [Usage](#usage) 

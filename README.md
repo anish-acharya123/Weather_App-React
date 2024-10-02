@@ -48,5 +48,19 @@ The app should now be running on `http://localhost:5173
 
 ## API
 
+This app uses [Open-Meteo Api](https://open-meteo.com/)  to fetch real-time weather data and [Nominatim](https://nominatim.openstreetmap.org/) to fetch the real-time location of the user. 
+
+
+## Contributing
+
+Contributions are welcome! If you'd like to help improve this project, please follow these steps:
+
+1. Fork the repositoriy.
+2. Create a new branch (`git checkout -b features/new-feature`)
+3. Make your changes and commit them (`git commit -m "Add new feature"`)
+4. Push the changes to your branch (`git push origin feature/new-feature`)
+3. submit a pull request.
+
+
 
 

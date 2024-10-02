@@ -8,6 +8,8 @@ import Layout from "./hoc/Maxwidth";
 import Info from "./pages/Info";
 import DetailsPage from "./pages/DetailsPage";
 import "./App.css";
+import { useSelector } from "react-redux";
+import { RootState } from "./app/Store";
 
 function App() {
   const [userLocation, setUserLocation] = useState<{
@@ -31,6 +33,14 @@ function App() {
   if (userLocation) {
     localStorage.setItem("userlocation", JSON.stringify(userLocation));
   }
+
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const mode = useSelector((state: RootState) => state.ToogleDark.value);
+  useEffect(() => {
+    const dark = JSON.parse(localStorage.getItem("isDarkMode") || "false");
+    setIsDark(dark);
+  }, [mode]);
+
   return (
     <>
       <BrowserRouter>
@@ -38,25 +48,27 @@ function App() {
           latitude={userLocation?.latitude}
           longitude={userLocation?.longitude}
         >
-          <Layout>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/info"
-                element={
-                  <Info
-                    setUserLocation={setUserLocation}
-                    userlocation={userLocation}
-                  />
-                }
-              />
-              <Route
-                path="/info/:district/:lat/:lon"
-                element={<DetailsPage />}
-              />
-              <Route path="*" element={<Nopage />} />
-            </Routes>
-          </Layout>
+          <div className={`${isDark && "bg-black text-white"}`}>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                  path="/info"
+                  element={
+                    <Info
+                      setUserLocation={setUserLocation}
+                      userlocation={userLocation}
+                    />
+                  }
+                />
+                <Route
+                  path="/info/:district/:lat/:lon"
+                  element={<DetailsPage />}
+                />
+                <Route path="*" element={<Nopage />} />
+              </Routes>
+            </Layout>
+          </div>
         </Dataprovider>
       </BrowserRouter>
     </>

@@ -1,6 +1,7 @@
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import SearchBox from "./SearchBox";
+import DarkMode from "./DarkMode";
 
 const Navbar = () => {
   const location = useLocation();
@@ -29,6 +30,9 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to="/info">Info</NavLink>
+            </li>
+            <li>
+              <DarkMode />
             </li>
           </ul>
           <div className="sm:hidden">

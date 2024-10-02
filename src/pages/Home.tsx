@@ -27,7 +27,7 @@ const Home: React.FC = () => {
         <h1 className="md:text-[82px] sm:text-[60px] text-[50px] font-medium  text-left  leading-[100%]">
           Your Live Forecaster
         </h1>
-        <p className="text-black sm:text-[26px] text-[20px]">
+        <p className="sm:text-[26px] text-[20px]">
           Today We Forecast Building Dreams, <br className="lg:block hidden" />{" "}
           One Day at a Time!
         </p>

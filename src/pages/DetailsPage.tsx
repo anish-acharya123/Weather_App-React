@@ -33,7 +33,7 @@ const DetailsPage = () => {
   }
 
   return (
-    <div className="pt-32  w-full grid md:grid-cols-2 grid-cols-1  px-6  gap-4">
+    <div className="pt-32  w-full grid md:grid-cols-2 grid-cols-1  px-6  gap-4 min-h-screen">
       <CurrentData searchData={daily} current_data={current_weather} />
       <div className="flex-1">
         <WeekData searchData={daily} />

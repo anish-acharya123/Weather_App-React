@@ -6,7 +6,7 @@ import { Icon } from "@iconify/react";
 interface props {
   searchData: object | undefined;
 }
-const WeekData: React.FC<props > = ({ searchData }) => {
+const WeekData: React.FC<props> = ({ searchData }) => {
   const { data } = useContext(DataContext);
   let daily;
   if (searchData === undefined) {
@@ -14,8 +14,6 @@ const WeekData: React.FC<props > = ({ searchData }) => {
   } else {
     daily = searchData;
   }
-
-  
 
   const getDayName = (dateString: string) => {
     const date = new Date(dateString);
@@ -37,23 +35,12 @@ const WeekData: React.FC<props > = ({ searchData }) => {
                 className="text-[30px]"
               />
             </p>
-            {/* <p>Weather Code: {daily?.weather_code[index]}</p> */}
             <div className="flex items-end flex-1 justify-end ">
               <p className="font-medium text-lg">
                 {daily?.temperature_2m_max[index]} /{" "}
               </p>
               <p className="text-sm ">{daily?.temperature_2m_min[index]} °C</p>
             </div>
-            {/* <p>
-              Average Temp:{" "}
-              {calculateAverageTemp(
-                daily?.temperature_2m_min[index],
-                daily?.temperature_2m_max[index]
-              )}
-              °C
-            </p> */}
-            {/* <p>Rain: {daily?.rain_sum[index]} mm</p> */}
-            {/* <p>UV Index Max: {daily?.uv_index_max[index]}</p> */}
           </div>
         ))}
       </div>

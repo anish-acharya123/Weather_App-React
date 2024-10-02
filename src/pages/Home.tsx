@@ -16,7 +16,6 @@ const Home: React.FC = () => {
       <div className="flex-1 flex flex-col gap-4 md:justify-normal md:items-start justify-center items-normal">
         {
           <div className="font-medium sm:text-[20px] text-[18px]">
-            {/* Your current Location{" "} */}
             Discover what's new in{" "}
             <span className="text-white underline underline-offset-2">
               {(userAddress && userAddress?.city) || "Your Location"}! <br />

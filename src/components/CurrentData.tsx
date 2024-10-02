@@ -26,7 +26,7 @@ const CurrentData: React.FC<props> = ({ searchData, current_data }) => {
   }
 
   return (
-    <div className="bg-[#385372] h-full p-4 text-white  w-fit flex-1 flex justify-center flex-col gap-4">
+    <div className="bg-[#385372] h-fit p-4 text-white  w-fit flex-1 flex justify-center flex-col gap-4">
       <h2 className="text-2xl">
         Current Weather{" "}
         <span className="text-sm">

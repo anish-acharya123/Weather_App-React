@@ -20,7 +20,7 @@ A weather application that shows the current weather conditions for various loca
  - [Usage](#usage) 
  - [API](#api) 
  - [Contributing](#contributing) 
- - [Acknowledge](#acknowledge)
+ - [Acknowledgement](#acknowledge)
 
 ## Installation
 
